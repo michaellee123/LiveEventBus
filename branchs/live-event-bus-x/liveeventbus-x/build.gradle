@@ -1,13 +1,13 @@
 apply plugin: 'com.android.library'
 
+group='com.github.michaellee123'
+
 android {
-    compileSdkVersion 28
+    compileSdk 34
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        targetSdkVersion 34
     }
 
     buildTypes {
@@ -16,10 +16,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    namespace 'com.jeremyliao.liveeventbus'
 
 }
 
 dependencies {
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
-    implementation 'androidx.lifecycle:lifecycle-livedata:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata:2.6.1'
 }
