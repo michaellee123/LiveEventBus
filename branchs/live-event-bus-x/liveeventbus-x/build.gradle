@@ -1,6 +1,11 @@
-apply plugin: 'com.android.library'
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'maven-publish'
+}
 
 group='com.github.michaellee123'
+version = '1.8.14'
 
 android {
     compileSdk 34
@@ -22,5 +27,19 @@ android {
 
 dependencies {
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
-    implementation 'androidx.lifecycle:lifecycle-livedata:2.6.1'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.1'
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.github.michaellee123'
+                artifactId = 'live-event-bus-x'
+                version = '1.8.14'
+            }
+        }
+    }
 }
